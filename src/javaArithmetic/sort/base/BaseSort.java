@@ -15,6 +15,17 @@ public interface BaseSort {
      void sort(Comparable[] a);
 
       /**
+        * 描述: 比较大小<br>
+        * 作者: zyw<br>
+        * @param  a 可排序元素
+        * @param  b 可排序元素
+        * @result 是否a比b小
+        */
+     static boolean less(Comparable a,Comparable b){
+        return a.compareTo(b) < 0;
+     }
+
+      /**
         * 描述: 交换集合元素<br>
         * 作者: zyw<br>
         * @param  a 可排序元素集合
@@ -34,6 +45,21 @@ public interface BaseSort {
         for(Comparable obj :a){
             System.out.println(obj + " ");
         }
+     }
+
+      /**
+        * 描述: 检查是否有序<br>
+        * 作者: zyw<br>
+        * @param  a 可排序元素集合
+        * @result 是否a按照由小到大排序
+        */
+     static boolean isSorted(Comparable[] a){
+         for(int i = 1; i< a.length; i++){
+            if(less(a[i],a[i-1])){
+                return false;
+            }
+         }
+         return true;
      }
 
 
