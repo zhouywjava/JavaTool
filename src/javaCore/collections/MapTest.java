@@ -60,7 +60,7 @@ public class MapTest {
         map.computeIfAbsent(2,(v)->"efgh");
         map.forEach((k,v)-> System.out.println("key: " + k + " ,value: " + v));
         System.out.println("===============================");
-        // computeIfPresent 与 computeIfAbsent 相反 只有key 存在，且映射值不为null 时才计算，如果计算结果为null则删除key，否则替换key的映射值
+        // computeIfPresent 与 computeIfAbsent 相反 只有key 存在，且映射值不为null 时才计算，如果计算结果为null则删除key，否则替换key的映射值 BiFunction
         map.computeIfPresent(1,(k,v)->null);
         map.computeIfPresent(2,(k,v)->v.toUpperCase());
         map.computeIfPresent(7,(k,v)->"zzzz");
