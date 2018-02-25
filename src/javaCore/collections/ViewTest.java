@@ -3,6 +3,7 @@ package javaCore.collections;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -35,13 +36,25 @@ public class ViewTest {
         List unmodifierList = Collections.unmodifiableList(lists);
         try {
             //unmodifierList.add("1");
-            unmodifierList.remove("a");
+            //unmodifierList.remove("a");
         }catch (Exception e){
             e.printStackTrace();
             System.out.println("error:" + e);
         }
         lists.add("eeeeee");
         lists.forEach((v)-> System.out.println(v) );
+        System.out.println("============================");
 
+        List<String> strings = new ArrayList<>();
+        List objs = strings;
+        objs.add(new Date());
+        System.out.println(objs.get(0));
+        //System.out.println(strings.get(0)); //error
+
+        List<String> saveString = Collections.checkedList(strings,String.class);
+        List objss = saveString;
+        //objss.add(new Date());//受检视图对象在运行时会检查类型是否匹配，不匹配时抛出异常
+        objss.add("yesss");
+        System.out.println(strings.get(1));
     }
 }
