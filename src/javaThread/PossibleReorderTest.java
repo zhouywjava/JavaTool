@@ -1,7 +1,7 @@
 package javaThread;
 
 /**
- * @Description: 多线程下指令重排问题
+ * @Description: 多线程下指令重排问题(单线程在满足as-if-serial语义的情况下也会进行重排序s)
  * @Author: zyw
  * @Date: 2018/3/2
  */
@@ -34,7 +34,17 @@ public class PossibleReorderTest {
             count++;
         }while(x!=1 || y!=1);
     }
-
-
-
+}
+class Reordering {
+    public static void main(String[] args) {
+        int x, y;
+        x = 1;
+        try {
+            x = 2;
+            y = 0 / 0;
+        } catch (Exception e) {
+        } finally {
+            System.out.println("x = " + x);
+        }
+    }
 }
