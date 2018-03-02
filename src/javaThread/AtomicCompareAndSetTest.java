@@ -7,20 +7,18 @@ import java.util.concurrent.atomic.AtomicLong;
  * @Author: zyw
  * @Date: 2018/3/1
  */
-public class AtomicSecondTest {
+public class AtomicCompareAndSetTest {
 
     public static void main(String[] args) {
         AtomicLong atomicLong = new AtomicLong();
+
         Runnable r = () ->{
-           while(true){
-               long current = atomicLong.get();
-               long newOne = current + 1;
-               boolean res = atomicLong.compareAndSet(current,newOne);
-               if(res){
-                   System.out.println(newOne);
-                   return;
-               }
-           }
+            long current,newOne;
+            do{
+               current = atomicLong.get();
+               newOne = current + 1;
+            }while(!atomicLong.compareAndSet(current,newOne));
+            System.out.println(newOne);
         };
         for(int i = 0;i<100;i++){
             Thread t = new Thread(r);

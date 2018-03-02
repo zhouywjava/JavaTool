@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * @Author: zyw
  * @Date: 2018/3/1
  */
-public class AtomicTest {
+public class AtomicIncrementAndGetTest {
 
     public static void main(String[] args) {
         AtomicLong next = new AtomicLong();
