@@ -7,30 +7,10 @@ package javaThread;
  */
 public class ThreadLocalTest {
 
-    static ThreadLocal<Integer> x = new ThreadLocal<Integer>(){
-        @Override
-        protected Integer initialValue() {
-            return 0;
-        }
-    };
-    static ThreadLocal<Integer> y = new ThreadLocal<Integer>(){
-        @Override
-        protected Integer initialValue() {
-            return 0;
-        }
-    };
-    static ThreadLocal<Integer> a = new ThreadLocal<Integer>(){
-        @Override
-        protected Integer initialValue() {
-            return 0;
-        }
-    };
-    static ThreadLocal<Integer> b = new ThreadLocal<Integer>(){
-        @Override
-        protected Integer initialValue() {
-            return 0;
-        }
-    };
+    static ThreadLocal<Integer> x = ThreadLocal.withInitial(()->0);
+    static ThreadLocal<Integer> y = ThreadLocal.withInitial(()->0);
+    static ThreadLocal<Integer> a = ThreadLocal.withInitial(()->0);
+    static ThreadLocal<Integer> b = ThreadLocal.withInitial(()->0);
 
     public static void main(String[] args) throws InterruptedException {
         Runnable r1 = () -> {
