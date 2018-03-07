@@ -19,6 +19,6 @@ public class AnalyzePool {
     //用于预定执行构建固定的线程池 比如5个。java.util.timer
     ExecutorService pool4 = Executors.newScheduledThreadPool(5);
     //用于预定执行而构建的但线程池
-    ExecutorService pool5 = Executors.newSingleThreadExecutor();
+    ExecutorService pool5 = Executors.newSingleThreadScheduledExecutor();
 
 }
