@@ -1,6 +1,6 @@
 package javaThread.Queue;
 
-import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.SynchronousQueue;
 
 /**
  * @Description: SynchronousQueue
@@ -10,7 +10,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 public class SynchronousQueueTest {
 
     public static void main(String[] args) {
-        ArrayBlockingQueue<Integer> blockingQueue = new ArrayBlockingQueue<Integer>(10);
+        SynchronousQueue<Integer> blockingQueue = new SynchronousQueue<Integer>();
         blockingQueue.add(1);
         blockingQueue.offer(1);
         try {

@@ -9,7 +9,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @Description: ArrayListBlockingQueue
+ * @Description: ArrayBlockingQueue 因为生产者多与消费者，因此在通知停止的时候消费者会及时停止，生产者会因为阻塞而不会及时停止，最后强制中断报中断异常
  * @Author: zyw
  * @Date: 2018/3/7
  */
