@@ -3,7 +3,6 @@ package javaThread.Queue;
 import javaThread.model.DelayedEle;
 
 import java.util.concurrent.DelayQueue;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @Description: DelayWorkQueue 重试机制，当调用接口失败后，把当前调用信息放到delay10s的元素中，放入队列。时间由放入队列的时候开始算
