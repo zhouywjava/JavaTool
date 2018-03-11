@@ -3,7 +3,7 @@ package javaArithmetic.sort;
 import javaArithmetic.sort.base.BaseSort;
 
 /**
- * 插入排序
+ * 插入排序 平均的情况是N^2/4次比较和N^2/4次交换
  * Created by zhouyiwei on 2018/2/23.
  */
 public class InsertSort implements BaseSort {

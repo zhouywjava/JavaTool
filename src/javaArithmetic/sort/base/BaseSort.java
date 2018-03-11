@@ -1,7 +1,7 @@
 package javaArithmetic.sort.base;
 
 /**
- * @Description: 排序模板
+ * @Description: 排序模板 排序成本模型:计算比较和交换的次数。如果算法不交换元素，计算访问数组的次数
  * @Author: zyw
  * @Date: 2018/2/23
  */
@@ -62,6 +62,9 @@ public interface BaseSort {
          return true;
      }
 
+    public static void main(String[] args) {
+        System.out.println(less(0,1));
+    }
 
 
 }

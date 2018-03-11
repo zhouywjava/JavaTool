@@ -3,7 +3,7 @@ package javaArithmetic.sort;
 import javaArithmetic.sort.base.BaseSort;
 
 /**
- * @Description: 选择排序
+ * @Description: 选择排序需要N^2 /2 次比较，N次交换
  * @Author: zyw
  * @Date: 2018/2/23
  */
