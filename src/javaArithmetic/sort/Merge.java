@@ -7,65 +7,29 @@ import javaArithmetic.sort.base.BaseSort;
  * @Author: zyw
  * @Date: 2018/3/10
  */
-public class Merge {
+public class Merge implements BaseSort{
 
-    private static Comparable[] aux;
-
-    public static void sort(Comparable[] a){
-        aux = new Comparable[a.length];
+    @Override
+    public void sort(Comparable[] a) {
         sort(a,0,a.length-1);
     }
 
-    private static void sort(Comparable[] a,int lo,int hi){
+    private void sort(Comparable[] a,int lo ,int hi){
+        //递归的返回条件
         if(lo >= hi) return;
-        int mid = lo + ((hi - lo)>>1);
-        //递归调用
+        int mid = lo + ((hi - lo) >> 1);
+        //左边子递归
         sort(a,lo,mid);
+        //右边子递归
         sort(a,mid+1,hi);
-        merge(a,lo,mid,hi);
-    }
-
-     /**
-       * 描述: 归并算法<br>
-       * 作者: zyw<br>
-       * @param  a 待归并数组
-       * @param lo 开始归并位置
-       * @param mid 归并中间位置
-       * @param hi 归并结尾位置
-       * @result
-       */
-    private static void merge(Comparable[] a,int lo,int mid,int hi){
-        //lo~mid mid+1 ~ hi分为两个待归并数组
-        int i = lo,j = mid+1;
-        //复制一个辅助数组
-        for(int k = 0;k<=hi;k++){
-            aux[k] = a[k];
-        }
-        //开始比较
-        //因为上面复制辅助数组的时候会把之前排序好的元素带出来，所以下面在比较赋值的时候就不从0开始了，而是从lo开始
-        for (int k = lo; k <= hi; k++) {
-            //如果左边 lo ~ mid已经都比较完了，那么直接取右边了
-            if (i > mid) {
-                a[k] = aux[j++];
-            }
-            //如果右边 mid+1 ~hi 已经都比较完了，那么直接取左边了
-            else if (j > hi) {
-                a[k] = aux[i++];
-            }
-            //如果a[j] < a[i] 那么取a[j]
-            else if (BaseSort.less(aux[j], aux[i])) {
-                a[k] = aux[j++];
-            }
-            //否则 取a[i]
-            else {
-                a[k] = aux[i++];
-            }
-        }
+        //假设左右子递归完成了，则归并当前的数据
+        BaseSort.merge(a,lo,mid,hi);
     }
 
     public static void main(String[] args) {
         Integer[] a = new Integer[]{0,9,2,3,7,8,6,5,4,1};
-        Merge.sort(a);
+        Merge merge = new Merge();
+        merge.sort(a);
         for(int i : a){
             System.out.print(i+",");
         }
