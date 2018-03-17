@@ -14,7 +14,9 @@ import java.util.concurrent.Executors;
 public class CyclicBarrierTest {
 
     public static void main(String[] args) {
-        final CyclicBarrier cyclicBarrier = new CyclicBarrier(3);//留一个给主线程
+        final CyclicBarrier cyclicBarrier = new CyclicBarrier(3,()->{
+            System.out.println("三个线程均到达栅栏");
+        });//留一个给主线程
         final Integer[] arr = new Integer[10];
 
         Runnable r = ()->{
